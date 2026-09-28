@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Truck Fleet Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            🚛 <span>TRUCK<span class="orange">FLEET</span></span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#trucks">Trucks</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">TRUCK MANAGEMENT SYSTEM</p>
+
+            <h1>
+                Manage Your
+                <span>Truck Fleet</span>
+                Easily
+            </h1>
+
+            <p class="hero-text">
+                Track your trucks, check their status,
+                manage drivers and keep your complete
+                fleet information in one place.
+            </p>
+
+            <a href="#trucks" class="main-btn">
+                View Trucks →
+            </a>
+
+        </div>
+
+        <!-- Yahan apni truck image laga sakte ho -->
+        <div class="hero-image">
+            <div class="image-placeholder">
+                🚛
+                <small>YOUR TRUCK IMAGE</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">🚛</div>
+            <div>
+                <h2 id="totalTrucks">12</h2>
+                <p>Total Trucks</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon green">●</div>
+            <div>
+                <h2 id="runningTrucks">8</h2>
+                <p>Running</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon yellow">●</div>
+            <div>
+                <h2 id="availableTrucks">3</h2>
+                <p>Available</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon red">●</div>
+            <div>
+                <h2 id="serviceTrucks">1</h2>
+                <p>Service</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- TRUCK SECTION -->
+    <section class="truck-section" id="trucks">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">OUR FLEET</p>
+                <h2>All Trucks</h2>
+            </div>
+
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="🔍 Search truck..."
+                onkeyup="searchTruck()"
+            >
+
+        </div>
+
+
+        <!-- FILTER BUTTONS -->
+        <div class="filters">
+
+            <button class="filter active" onclick="filterTruck('all', this)">
+                All
+            </button>
+
+            <button class="filter" onclick="filterTruck('Running', this)">
+                Running
+            </button>
+
+            <button class="filter" onclick="filterTruck('Available', this)">
+                Available
+            </button>
+
+            <button class="filter" onclick="filterTruck('Service', this)">
+                Service
+            </button>
+
+        </div>
+
+
+        <!-- TRUCK CARDS -->
+        <div class="truck-grid" id="truckGrid">
+
+
+            <!-- TRUCK 1 -->
+            <div class="truck-card" data-status="Running">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status running">Running</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Location Name</p>
+                        <p>📦 <b>Load:</b> Load Details</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRUCK 2 -->
+            <div class="truck-card" data-status="Running">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status running">Running</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Location Name</p>
+                        <p>📦 <b>Load:</b> Load Details</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRUCK 3 -->
+            <div class="truck-card" data-status="Available">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status available">Available</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Location Name</p>
+                        <p>📦 <b>Load:</b> Available</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRUCK 4 -->
+            <div class="truck-card" data-status="Service">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status service">Service</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Workshop</p>
+                        <p>📦 <b>Load:</b> Service</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- COPY THESE CARDS TO ADD MORE TRUCKS -->
+
+            <div class="truck-card" data-status="Running">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status running">Running</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Location Name</p>
+                        <p>📦 <b>Load:</b> Load Details</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="truck-card" data-status="Available">
+
+                <div class="truck-photo">
+                    <span>TRUCK PHOTO</span>
+                </div>
+
+                <div class="truck-info">
+
+                    <div class="truck-top">
+                        <h3>Truck Name</h3>
+                        <span class="status available">Available</span>
+                    </div>
+
+                    <p class="number">HR XX XX XXXX</p>
+
+                    <div class="details">
+                        <p>👤 <b>Driver:</b> Driver Name</p>
+                        <p>📍 <b>Location:</b> Location Name</p>
+                        <p>📦 <b>Load:</b> Load Details</p>
+                    </div>
+
+                    <button class="details-btn" onclick="showDetails('Truck Name')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div>
+            <p class="small-title">ABOUT US</p>
+
+            <h2>
+                Your Fleet,
+                <span>Our Management</span>
+            </h2>
+
+            <p>
+                Yahan apni company ke baare mein information
+                likh sakte ho. Company kab start hui, kitne
+                trucks hain aur kya services provide karte ho.
+            </p>
+
+            <a href="#contact" class="main-btn">
+                Contact Us
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <p class="small-title">CONTACT</p>
+
+        <h2>Get In Touch</h2>
+
+        <div class="contact-box">
+
+            <p>📞 <b>Phone:</b> +91 XXXXX XXXXX</p>
+
+            <p>📧 <b>Email:</b> your@email.com</p>
+
+            <p>📍 <b>Address:</b> Your Address</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>🚛 TRUCK<span>FLEET</span></h3>
+
+        <p>
+            © 2026 Your Company Name. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
